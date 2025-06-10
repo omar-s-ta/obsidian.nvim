@@ -280,6 +280,7 @@ config.LinkStyle = {
 ---@class obsidian.config.CompletionOpts
 ---
 ---@field nvim_cmp boolean
+---@field blink_cmp boolean
 ---@field min_chars integer
 config.CompletionOpts = {}
 
@@ -288,8 +289,10 @@ config.CompletionOpts = {}
 ---@return obsidian.config.CompletionOpts
 config.CompletionOpts.default = function()
   local has_nvim_cmp, _ = pcall(require, "cmp")
+  local has_blink_cmp, _ = pcall(require, "blink.cmp")
   return {
     nvim_cmp = has_nvim_cmp,
+    blink_cmp = has_blink_cmp,
     min_chars = 2,
   }
 end
